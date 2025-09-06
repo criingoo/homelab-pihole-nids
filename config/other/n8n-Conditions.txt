@@ -1,0 +1,28 @@
+# Filter:
+## Conditions
+{{ (isNaN(Date.parse($json["pubDate"]))) ? '' : new Date($json["pubDate"]).toLocaleDateString('en-CA', { timeZone: 'Europe/Zurich' }) }}
+
+[is equal to]
+
+{{ (new Date()).toLocaleDateString('en-CA', { timeZone: 'Europe/Zurich' }) }}
+
+
+# Discord Webhook
+## Connection Type
+Webhook
+## Operations
+Send a Message
+## Message
+`## ℹ️  {{ $('Schedule 8:00, INFO').item.json['Day of week'] }}, {{ $('Schedule 8:00, INFO').item.json['Day of month'] }}. {{ $('Schedule 8:00, INFO').item.json.Month }} {{ $('Schedule 8:00, INFO').item.json.Year }}
+### {{ $json.title }}`
+
+## Description
+{{ $json.content }}
+
+{{ $json.link }}
+
+## URL
+{{ $json.guid }}
+
+## URL Image
+{{ $json.enclosure.url }}
